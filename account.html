@@ -329,6 +329,45 @@ body{
   </a>
 
 </div>
+<script type="module">
 
+import { auth } from "./firebase.js";
+
+import {
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+onAuthStateChanged(auth, (user) => {
+
+  if (user) {
+
+    document.getElementById("userEmail").innerText =
+      user.email || "Email उपलब्ध नहीं";
+
+    document.getElementById("userName").innerText =
+      user.displayName || "VK Fashion Customer";
+
+  } else {
+
+    window.location.href = "login.html";
+
+  }
+
+});
+
+window.logoutUser = function(){
+
+  signOut(auth)
+    .then(() => {
+      window.location.href = "login.html";
+    })
+    .catch((error) => {
+      alert("Logout failed: " + error.message);
+    });
+
+};
+
+</script>
 </body>
 </html>
