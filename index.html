@@ -263,6 +263,48 @@ text-decoration:none;
 padding:12px;
 font-weight:bold;
 }
+  .bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:68px;
+  background:#fff;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  box-shadow:0 -2px 12px rgba(0,0,0,0.12);
+  z-index:9999;
+  border-top:1px solid #eee;
+}
+
+.bottom-nav a{
+  flex:1;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  text-decoration:none;
+  color:#555;
+  font-size:11px;
+  font-weight:500;
+}
+
+.nav-icon{
+  font-size:25px;
+  line-height:25px;
+  font-weight:400;
+}
+
+.bottom-nav a:hover{
+  color:#111;
+}
+
+.bottom-nav a:active{
+  transform:scale(0.95);
+}
 </style>
 <div class="products">
 
@@ -362,11 +404,28 @@ else{
 
   }
 </script>
-  <div class="bottom-nav">
-  <a href="index.html">🏠 Home</a>
-  <a href="offers.html">🔥 Deals</a>
-  <a href="myorders.html">📦 My Orders</a>
-  <a href="account.html">👤 Account</a>
-  </div>
+<div class="bottom-nav">
+
+  <a href="index.html">
+    <span class="nav-icon">⌂</span>
+    <span>Home</span>
+  </a>
+
+  <a href="offers.html">
+    <span class="nav-icon">%</span>
+    <span>Deals</span>
+  </a>
+
+  <a href="myorders.html">
+    <span class="nav-icon">▣</span>
+    <span>My Orders</span>
+  </a>
+
+  <a href="account.html">
+    <span class="nav-icon">○</span>
+    <span>Account</span>
+  </a>
+
+</div>
 </body>
 </html>
