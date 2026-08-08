@@ -6,23 +6,36 @@
 <title>VK Fashion Store</title>
 
 <style>
-  nav{
-    background:#222;
-    padding:15px;
-    text-align:center;
+nav{
+  background:linear-gradient(90deg,#ff3366,#ff4f7b);
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:12px 8px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.18);
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 15px;
-    font-size:18px;
-    font-weight:bold;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:15px;
+  padding:9px 13px;
+  border-radius:20px;
+  transition:0.3s;
+  border-right:1px solid rgba(255,255,255,0.5);
 }
 
 nav a:hover{
-    color:#ff4081;
-  }
+  background:white;
+  color:#ff3366;
+  transform:translateY(-2px);
+}
+
+nav a:last-child{
+  border-right:none;
+}
 *{
 margin:0;
 padding:0;
