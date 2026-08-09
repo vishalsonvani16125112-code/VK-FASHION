@@ -4,36 +4,106 @@
 <title>My Orders</title>
 
 <style>
+
+*{
+    box-sizing:border-box;
+}
+
 body{
-    font-family: Arial, sans-serif;
-    background:#f5f5f5;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#f5f7fa,#e9eef5);
     margin:0;
-    padding:20px;
+    padding:20px 12px 80px;
+    color:#222;
 }
 
 h1{
     text-align:center;
+    font-size:28px;
+    margin:10px 0 25px;
+    color:#111;
+}
+
+#orders{
+    max-width:650px;
+    margin:auto;
 }
 
 .order{
-    background:#fff;
-    padding:15px;
-    margin:15px auto;
-    max-width:500px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    background:white;
+    padding:20px;
+    margin:18px auto;
+    border-radius:18px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.10);
+    border:1px solid #eee;
+}
+
+.order h3{
+    margin:0 0 15px;
+    font-size:19px;
+    color:#111;
+    border-bottom:1px solid #eee;
+    padding-bottom:12px;
+}
+
+.product-info{
+    text-align:center;
+    padding:5px 0 15px;
+}
+
+.product-info img{
+    width:150px !important;
+    height:170px !important;
+    object-fit:cover;
+    border-radius:14px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.product-info h3{
+    border:0;
+    margin:12px 0 8px;
+    padding:0;
+    font-size:20px;
+}
+
+.product-info p{
+    margin:7px 0;
+}
+
+.order hr{
+    border:0;
+    border-top:1px solid #eee;
+    margin:12px 0;
+}
+
+.order p{
+    font-size:14px;
+    margin:10px 0;
+    line-height:1.4;
+}
+
+.order p b{
+    color:#111;
 }
 
 button{
     display:block;
-    margin:20px auto;
-    padding:12px 25px;
-    background:black;
+    width:100%;
+    margin:18px auto 0;
+    padding:13px;
+    background:#111;
     color:white;
     border:none;
-    border-radius:5px;
+    border-radius:9px;
     cursor:pointer;
+    font-size:15px;
+    font-weight:bold;
 }
+
+button:hover{
+    background:#333;
+}
+
 </style>
 
 </head>
