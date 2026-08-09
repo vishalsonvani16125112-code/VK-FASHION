@@ -98,31 +98,68 @@ async function loadOrders() {
 
     querySnapshot.forEach((docSnap) => {
 
-      const order = docSnap.data();
+  const order = docSnap.data();
 
-      output += `
-      <div class="order">
-          <h3>Order ${count}</h3>
+  let productHTML = "";
 
-          <p><b>Name:</b> ${order.name}</p>
-          <p><b>Mobile:</b> ${order.mobile}</p>
-          <p><b>Email:</b> ${order.email}</p>
-          <p><b>Address:</b> ${order.address}</p>
-          <p><b>City:</b> ${order.city}</p>
-          <p><b>State:</b> ${order.state}</p>
-          <p><b>PIN Code:</b> ${order.pincode}</p>
-          <p><b>Payment:</b> ${order.payment}</p>
-          <p><b>Status:</b> ${order.status}</p>
+  if(order.productName){
 
-          <button onclick="cancelOrder('${docSnap.id}')">
-              Cancel Order
-          </button>
+    productHTML = `
+      <div class="product-info">
+
+        <img src="${order.productImage}"
+             style="
+             width:120px;
+             height:140px;
+             object-fit:cover;
+             border-radius:10px;
+             display:block;
+             margin:10px auto;
+             ">
+
+        <h3>${order.productName}</h3>
+
+        <p><b>Price:</b> ₹${order.price}</p>
+
+        <p><b>Quantity:</b> ${order.quantity}</p>
+
+        <p><b>Size:</b> ${order.size}</p>
+
+        <p><b>Total:</b> ₹${order.total}</p>
+
       </div>
-      `;
+    `;
+  }
 
-      count++;
+  output += `
+    <div class="order">
 
-    });
+      <h3>Order ${count}</h3>
+
+      ${productHTML}
+
+      <hr>
+
+      <p><b>Name:</b> ${order.name}</p>
+      <p><b>Mobile:</b> ${order.mobile}</p>
+      <p><b>Email:</b> ${order.email}</p>
+      <p><b>Address:</b> ${order.address}</p>
+      <p><b>City:</b> ${order.city}</p>
+      <p><b>State:</b> ${order.state}</p>
+      <p><b>PIN Code:</b> ${order.pincode}</p>
+      <p><b>Payment:</b> ${order.payment}</p>
+      <p><b>Status:</b> ${order.status}</p>
+
+      <button onclick="cancelOrder('${docSnap.id}')">
+        Cancel Order
+      </button>
+
+    </div>
+  `;
+
+  count++;
+
+});
 
   }
 
