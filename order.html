@@ -205,19 +205,42 @@ window.placeOrder = async function () {
 
   try {
 
-    await addDoc(collection(db, "orders"), {
-      userEmail: firebaseUser.email,
-      name: name,
-      mobile: mobile,
-      email: email,
-      address: address,
-      city: city,
-      state: state,
-      pincode: pincode,
-      payment: payment,
-      status: "Pending",
-      createdAt: serverTimestamp()
-    });
+    let productData =
+  JSON.parse(localStorage.getItem("buyNowProduct"));
+
+if (!productData) {
+  alert("Product information not found.");
+  return;
+}
+
+let total =
+  productData.price * productData.quantity;
+
+await addDoc(collection(db, "orders"), {
+
+  userEmail: firebaseUser.email,
+
+  name: name,
+  mobile: mobile,
+  email: email,
+  address: address,
+  city: city,
+  state: state,
+  pincode: pincode,
+
+  productName: productData.name,
+  productImage: productData.image,
+  price: productData.price,
+  quantity: productData.quantity,
+  size: productData.size,
+  total: total,
+
+  payment: payment,
+
+  status: "Pending",
+
+  createdAt: serverTimestamp()
+});
 
     alert("✅ Order Placed Successfully!");
 
