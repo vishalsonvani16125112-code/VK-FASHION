@@ -104,7 +104,17 @@ button{
 <option>XL</option>
 <option>XXL</option>
 </select>
+    
+<label>Quantity</label>
 
+<select id="quantity">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+</select>
+    
 <button onclick="buyNow()">Buy Now</button>
 <button onclick="location.href='cart.html'">Go To Cart</button>
 <button onclick="addToCart()">Add To Cart</button>
@@ -125,7 +135,7 @@ function buyNow(){
     price:549,
     image:"tshirt2.jpg",
     size:document.getElementById("size").value,
-    quantity:1
+    quantity:Number(document.getElementById("quantity").value)
   };
 
   localStorage.setItem(
