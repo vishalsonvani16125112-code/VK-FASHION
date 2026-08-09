@@ -94,15 +94,24 @@ button{
 <p><b>Brand:</b> VK Fashion Store</p>
 <p><b>Color:</b> Sky Blue</p>
 <p><b>Fabric:</b> Premium Cotton</p>
-
 <label>Select Size</label>
 
-<select>
-<option>S</option>
-<option>M</option>
-<option>L</option>
-<option>XL</option>
-<option>XXL</option>
+<select id="size">
+  <option value="S">S</option>
+  <option value="M">M</option>
+  <option value="L">L</option>
+  <option value="XL">XL</option>
+  <option value="XXL">XXL</option>
+</select>
+
+<label>Quantity</label>
+
+<select id="quantity">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
 </select>
 
 <button onclick="location.href='order.html'">Buy Now</button>
@@ -117,42 +126,75 @@ button{
 </div>
 
 <script>
+
+function buyNow(){
+
+  let product = {
+    name:"Sky Blue T-Shirt",
+    price:200,
+    image:"tshirt1.jpg",
+    size:document.getElementById("size").value,
+    quantity:Number(document.getElementById("quantity").value)
+  };
+
+  localStorage.setItem(
+    "buyNowProduct",
+    JSON.stringify(product)
+  );
+
+  window.location.href="order.html";
+}
+
+
 function addToCart(){
 
-let cart=JSON.parse(localStorage.getItem("cart"))||[];
+  let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
 
-let product={
-name:"Sky Blue T-Shirt",
-price:200,
-image:"tshirt1.jpg",
-size:document.querySelector("select").value
-};
+  let product = {
+    name:"Sky Blue T-Shirt",
+    price:200,
+    image:"tshirt1.jpg",
+    size:document.getElementById("size").value,
+    quantity:Number(document.getElementById("quantity").value)
+  };
 
-cart.push(product);
+  cart.push(product);
 
-localStorage.setItem("cart",JSON.stringify(cart));
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+  );
 
-alert("Product Added To Cart Successfully!");
+  alert("Product Added To Cart Successfully!");
 
 }
-    function addToWishlist(){
 
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-let product = {
-name:"Sky Blue T-Shirt",
-price:200,
-image:"tshirt1.jpg",
-size:document.querySelector("select").value
-};
+function addToWishlist(){
 
-wishlist.push(product);
+  let wishlist =
+    JSON.parse(localStorage.getItem("wishlist")) || [];
 
-localStorage.setItem("wishlist",JSON.stringify(wishlist));
+  let product = {
+    name:"Sky Blue T-Shirt",
+    price:200,
+    image:"tshirt1.jpg",
+    size:document.getElementById("size").value,
+    quantity:Number(document.getElementById("quantity").value)
+  };
 
-alert("Product Added To Wishlist!");
+  wishlist.push(product);
 
-    }
+  localStorage.setItem(
+    "wishlist",
+    JSON.stringify(wishlist)
+  );
+
+  alert("Product Added To Wishlist!");
+
+}
+
 </script>
 
 </body>
